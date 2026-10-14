@@ -18,10 +18,10 @@ var IM_SDKAPPID = 1600166965;  // 腾讯云IM SDKAppID（已填）
 var IM_ROOM_ID = '@TGS#aZGYNDZUN';  // 直播群(AVChatRoom) 群ID（已填）
 var IM_BUCKET = 'chat-images'; // Supabase Storage 桶名，用于存图片（需先建好这个桶+公开读）
 
-// UserSig 由 CloudBase HTTP 云函数(genUserSig) 用 SecretKey 生成，前端严禁放 SecretKey。
+// UserSig 由 Vercel Serverless 函数(/api/genUserSig) 用 SecretKey 生成，前端严禁放 SecretKey。
 function getIMUserSig(userId){
   return new Promise(function(resolve, reject){
-    fetch('https://chatroom-im-d1gwqd61s619ac465-1306353800.ap-shanghai.app.tcloudbase.com/genUserSig?userId=' + encodeURIComponent(userId))
+    fetch('/api/genUserSig?userId=' + encodeURIComponent(userId))
       .then(function(r){ return r.json(); })
       .then(function(j){
         if(j && j.userSig) resolve(j.userSig);
