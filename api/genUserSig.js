@@ -1,4 +1,5 @@
 // Vercel Serverless Function：生成腾讯云IM UserSig（零外部依赖，Node 内置 crypto/zlib）
+// 触发重部署：环境变量已注入，UserSig 签发走 Vercel 同域接口。
 // 访问：GET /api/genUserSig?userId=xxx  ->  { "userSig": "..." }
 // 环境变量（在 Vercel 项目设置里配置，绝不放前端/不进仓库）：
 //   TIM_SDKAPPID  = 腾讯云IM SDKAppID（数字）
