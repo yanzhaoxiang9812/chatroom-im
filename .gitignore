@@ -1,0 +1,13 @@
+# 敏感：含腾讯云IM SecretKey，仅本地联调用，绝不推送
+server.js
+
+# Netlify 函数（本项目已迁移 Vercel，无需此目录）
+netlify/
+netlify.toml
+
+# 部署包
+*.zip
+
+# 依赖/系统
+node_modules/
+.DS_Store
